@@ -1,13 +1,12 @@
 @import "variable";
 
-header {
+.footer {
+  position: fixed;
   font-size: 1rem;
-  color: $red-color;
-  background-color: transparent;
-}
-
-footer {
-  font-size: 1rem;
-  color: purple;
-  background-color: aquamarine;
+  color: #fff;
+  background-color: black;
+  text-align: center;
+  padding: 1rem 0;
+  bottom: 0;
+  width: 100%;
 }
