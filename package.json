@@ -24,6 +24,7 @@
   "homepage": "https://github.com/harrycricket/nodejs-blog#readme",
   "dependencies": {
     "express": "^4.18.2",
+    "express-formidable": "^1.2.0",
     "express-handlebars": "^7.1.2",
     "sass": "^1.66.1"
   },

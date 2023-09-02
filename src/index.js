@@ -4,9 +4,17 @@ const handlebars = require("express-handlebars");
 const sass = require("node-sass");
 const path = require("path");
 const app = express();
+const formidableMiddleware = require("express-formidable");
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, "public")));
+// app.use(
+//   express.urlencoded({
+//     extended: true,
+//   })
+// );
+app.use(formidableMiddleware());
+app.use(express.json());
 // Http logger
 app.use(morgan("combined"));
 
@@ -28,7 +36,19 @@ app.get("/", (req, res) => {
 });
 
 app.get("/news", (req, res) => {
-  res.render("news", { layout: false });
+  res.render("news");
+});
+
+app.get("/search", (req, res) => {
+  console.log(req.query.q);
+  res.render("search");
+});
+
+app.post("/search", (req, res) => {
+  // console.log(req.body);
+  req.fields; // contains non-file fields
+  console.log(req.fields);
+  res.render("search");
 });
 
 app.listen(port, () => {
