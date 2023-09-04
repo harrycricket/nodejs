@@ -10,3 +10,15 @@
     bottom: 0;
     width: 100%;
 }
+
+.card-link {
+    text-decoration: none;
+    border: black solid 1px;
+    border-radius: 0.5rem;
+    transition: all 0.2s linear;
+    color: green;
+    &:hover {
+        background-color: green;
+        color: white;
+    }
+}
