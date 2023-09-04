@@ -1,0 +1,26 @@
+<div class='mt-4' style='width: 40rem; margin: 0 auto'>
+    {{#with course}}
+        <div class='row'>
+            <div class='col-lg-3'>
+                <button>Learn now</button>
+            </div>
+            <div class='col-lg-9'>
+                <div class='card-body'>
+                    <h2 class='card-title'>{{this.name}}</h2>
+                    <iframe
+                        width='560'
+                        height='315'
+                        src='https://www.youtube.com/embed/{{this.videoId}}'
+                        title='YouTube video player'
+                        frameborder='0'
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                        allowfullscreen
+                    ></iframe>
+                    <p class='card-text'>{{this.description}}</p>
+                    <p class='card-text'><small class='text-muted'>{{this.createdAt}}</small></p>
+                    <p class='card-text'><small class='text-muted'>{{this.updatedAt}}</small></p>
+                </div>
+            </div>
+        </div>
+    {{/with}}
+</div>
