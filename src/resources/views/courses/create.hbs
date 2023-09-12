@@ -1,5 +1,6 @@
 <div class='mt-4'>
-    <form method='POST' action='store'>
+    <h3>CREATE A NEW COURSE</h3>
+    <form method='POST' action='/courses/store' class='mt-4'>
         <div class='mb-3'>
             <label for='name' class='form-label'>Course name</label>
             <input
@@ -13,14 +14,13 @@
         </div>
         <div class='mb-3'>
             <label for='description' class='form-label'>Description of the course</label>
-            <input
-                type='text'
+            <textarea
                 class='form-control'
                 name='description'
                 id='description'
                 placeholder='Ex: Next.js is an open-source web development framework created by the private company'
                 maxlength='1000'
-            />
+            ></textarea>
         </div>
         <div class='mb-3'>
             <label for='videoId' class='form-label'>Video ID of the course</label>

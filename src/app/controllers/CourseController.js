@@ -28,6 +28,27 @@ class CourseController {
             .then(() => res.redirect('/'))
             .catch((error) => {});
     }
+
+    // [GET] /courses/:id/edit
+    edit(req, res, next) {
+        Course.findById(req.params.id)
+            .then((course) =>
+                res.render('courses/edit', {
+                    course: mongooseToObject(course),
+                }),
+            )
+            .catch(next);
+    }
+
+    // [PUT] /courses/:id
+    async update(req, res, next) {
+        try {
+            await Course.updateOne({ _id: req.params.id }, req.body);
+            res.redirect('/me/stored/courses');
+        } catch (err) {
+            next(err);
+        }
+    }
 }
 
 module.exports = new CourseController();

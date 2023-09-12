@@ -1,0 +1,40 @@
+<div class='mt-4'>
+    <h3>EDIT A COURSE</h3>
+    {{#with course}}
+        <form method='POST' class='mt-4' action='/courses/{{this._id}}?_method=PUT'>
+            <div class='mb-3'>
+                <label for='name' class='form-label'>Course name</label>
+                <input
+                    type='text'
+                    class='form-control'
+                    name='name'
+                    id='name'
+                    maxlength='255'
+                    value='{{this.name}}'
+                />
+            </div>
+            <div class='mb-3'>
+                <label for='description' class='form-label'>Description of the course</label>
+                <textarea
+                    class='form-control'
+                    name='description'
+                    maxlength='1000'
+                >{{this.description}}</textarea>
+
+            </div>
+            <div class='mb-3'>
+                <label for='videoId' class='form-label'>Video ID of the course</label>
+                <input
+                    type='text'
+                    class='form-control'
+                    name='videoId'
+                    id='videoId'
+                    value='{{this.videoId}}'
+                />
+            </div>
+            <button class='btn btn-primary' type='submit'>
+                Edit
+            </button>
+        </form>
+    {{/with}}
+</div>

@@ -15,6 +15,8 @@ const db = require('./config/db/index');
 // connect to db
 db.connect();
 
+const methodOverride = require('method-override');
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
     express.urlencoded({
@@ -26,12 +28,18 @@ app.use(express.json());
 // Http logger
 app.use(morgan('combined'));
 
+// Method override
+app.use(methodOverride('_method'));
+
 // Template engine
 // Rendering engine setup
 app.engine(
     'hbs',
     handlebars.engine({
         extname: '.hbs',
+        helpers: {
+            sum: (a, b) => a + b,
+        },
     }),
 );
 app.set('view engine', 'hbs');

@@ -1,0 +1,48 @@
+<div class='mt-4 mb-5'>
+
+    <div>
+        <h3>My Courses</h3>
+    </div>
+
+    <table class='table mt-4 table-bordered'>
+        <thead>
+            <tr class='table-info'>
+                <th scope='col'>Id</th>
+                <th scope='col'>Course name</th>
+                <th scope='col'>Description</th>
+                <th scope='col'>Created at</th>
+                <th scope='col' colspan='2'>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each courses}}
+                <tr>
+                    <th scope='row'>{{sum @index 1}}</th>
+                    <td>{{this.name}}</td>
+                    <td>{{this.description}}</td>
+                    <td>{{this.createdAt}}</td>
+                    <td>
+                        <a href='/courses/{{this._id}}/edit' class='btn-link'>Edit</a>
+                    </td>
+                    <td>
+                        <a
+                            href=''
+                            class='btn-link'
+                            data-toggle='modal'
+                            data-id='{{this._id}}'
+                            data-target='#delete-course-modal'
+                        >Delete</a>
+                    </td>
+                </tr>
+            {{else}}
+                <tr>
+                    <td colspan='5' class='text-center'>
+                        You have no courses yet!
+                        <a href='/courses/create'>Create a new course</a>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</div>
